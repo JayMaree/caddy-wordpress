@@ -9,7 +9,7 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 
 # install the necessary packages
-sudo apt-get install php7.0-mysql mysql-server php7.0-fpm
+sudo apt-get -y install php7.0-mysql mysql-server php7.0-fpm
 
 # configure the basics of mysql ( please, secure it )
 sudo /usr/bin/mysql_secure_installation
@@ -72,12 +72,12 @@ sudo ./caddy -agree -conf="/home/jay/caddyfile"
 # before you do, you should chmod the wp-config.php file. Otherwise, you have to copy the settings by yourself into wp-config.php
 
 # let's install proftp which is useful while installing plugins e.g.
-sudo apt-get install proftpd
+sudo apt-get -y install proftpd
 
 # create a user which could be used with proftpd
-sudo useradd ftpwordpress -d /var/www/html -s /bin/bash
+sudo useradd ftpwordpress -d /var/www/html -s /bin/bash - changePassw0rd
 # change the password, or use the -p parameter
-sudo passwd ftpwordpress
+# sudo passwd ftpwordpress
 
 # chmod the necessary folders within /var/www/html
 
@@ -85,7 +85,7 @@ sudo passwd ftpwordpress
 sudo mkdir /var/www/html/wp-content/uploads | sudo chmod 777 /var/www/html/wp-content/uploads
 
 # THE FOLLOWING LINES ARE CUSTOM, I NEEDED TO INSTALL THESE PACKAGES etc. FOR MY WORDPRESS THEME
-sudo apt install php-pear
-sudo apt-get install php7.0-dev
+sudo apt-get -y install php-pear
+sudo apt-get -y install php7.0-dev
 
 # add the exention=zip to the php.ini
